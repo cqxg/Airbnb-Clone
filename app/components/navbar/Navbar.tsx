@@ -2,6 +2,7 @@
 
 import Logo from "./Logo";
 import Search from "./Search";
+import UserMenu from "./UserMenu";
 import Container from "../Container";
 
 const Navbar = () => (
@@ -20,6 +21,7 @@ const Navbar = () => (
         >
           <Logo />
           <Search />
+          <UserMenu />
         </div>
       </Container>
     </div>
