@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
 import Avatar from "./Avatar";
+import MenuItem from "./MenuItem";
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,7 +70,12 @@ const UserMenu = () => {
             rounded-xl
           "
         >
-          <div className="flex flex-col cursor-pointer"></div>
+          <div className="flex flex-col cursor-pointer">
+            <>
+              <MenuItem onClick={() => {}} label="Login" />
+              <MenuItem onClick={() => {}} label="Sign up" />
+            </>
+          </div>
         </div>
       )}
     </div>
