@@ -19,36 +19,36 @@ const UserMenu = () => {
         <div
           onClick={() => {}}
           className="
-                  px-4
-                  py-3
-                  hidden
-                  text-sm
-                  md:block
-                  transition
-                  pounded-full
-                  font-semibold
-                  cursor-pointer
-                  hover:bg-bg-neutral-100
-              "
+            py-3
+            px-4
+            hidden
+            text-sm
+            md:block
+            transition
+            pounded-full
+            font-semibold
+            cursor-pointer
+            hover:bg-bg-neutral-100
+          "
         >
           Airbnb your home
         </div>
         <div
           onClick={toggleOpen}
           className="
-                  flex
-                  py-4
-                  gap-3
-                  md:py-1
-                  md:px-2
-                  flex-row
-                  transition
-                  border-[1px]
-                  items-center
-                  cursor-pointer
-                  hover:shadow-md
-                  border-neutral-200
-              "
+            flex
+            py-4
+            gap-3
+            md:py-1
+            md:px-2
+            flex-row
+            transition
+            border-[1px]
+            items-center
+            cursor-pointer
+            hover:shadow-md
+           border-neutral-200
+          "
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
@@ -64,10 +64,10 @@ const UserMenu = () => {
             right-0
             w-[40vw]
             md:w-3/4
-            bg-white
             absolute
             shadow-md
             rounded-xl
+            bg-white
           "
         >
           <div className="flex flex-col cursor-pointer">
