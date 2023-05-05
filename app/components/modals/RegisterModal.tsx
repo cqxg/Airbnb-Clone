@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import Modal from "./Modal";
+import Heading from "../Heading";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const RegisterModal = () => {
@@ -33,9 +34,16 @@ const RegisterModal = () => {
       .finally(() => setIsLoading(false));
   };
 
+  const bodyContent = (
+    <div className="flex flex-col gap-4">
+      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
+    </div>
+  );
+
   return (
     <Modal
       title="Register"
+      body={bodyContent}
       disabled={isLoading}
       actionLabel="Continue"
       isOpen={registerModal.isOpen}
