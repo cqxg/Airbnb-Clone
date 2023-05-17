@@ -26,8 +26,13 @@ export default async function getCurrentUser() {
       throw new BadRequestException(ErrorMessage.USER_NOT_FOUND);
     }
 
-    return currentUser;
+    return {
+      ...currentUser,
+      createdAt: currentUser.createdAt.toISOString(),
+      updatedAt: currentUser.updatedAt.toISOString(),
+      emailVerified: currentUser.emailVerified?.toISOString() || null,
+    };
   } catch (error) {
-    throw new BadRequestException(ErrorMessage.USER_NOT_FOUND);
+    return null;
   }
 }
