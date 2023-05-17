@@ -1,0 +1,12 @@
+export enum ErrorStatus {
+  OK = "OK",
+
+  // http-specific errors
+  ERROR_HTTP = "ERROR_HTTP",
+  ERROR_BAD_REQUEST = "ERROR_BAD_REQUEST",
+  ERROR_JWT_EXPIRED = "ERROR_JWT_EXPIRED",
+
+  // crud-specific errors
+  ERROR_ENTITY_NOT_FOUND = "ERROR_ENTITY_NOT_FOUND",
+  ERROR_UNPROCESSABLE_ENTITY = "ERROR_UNPROCESSABLE_ENTITY",
+}
