@@ -1,19 +1,22 @@
 "use client";
 
 import axios from "axios";
-import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
+import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import Modal from "./Modal";
 import Button from "../Button";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
+
+import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const RegisterModal = () => {
+  const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,9 +26,9 @@ const RegisterModal = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      name: "",
-      email: "",
       password: "",
+      email: "",
+      name: "",
     },
   });
 
@@ -38,6 +41,11 @@ const RegisterModal = () => {
       .catch((error) => console.log(error))
       .finally(() => setIsLoading(false));
   };
+
+  const onToggle = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -94,16 +102,15 @@ const RegisterModal = () => {
         "
       >
         <p>
-          Already have an account?
+          Already have an account?{" "}
           <span
-            onClick={registerModal.onClose}
+            onClick={onToggle}
             className="
               cursor-pointer
               hover:underline
               text-neutral-800
             "
           >
-            {" "}
             Log in
           </span>
         </p>
