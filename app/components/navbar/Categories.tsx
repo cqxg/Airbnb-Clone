@@ -12,8 +12,8 @@ import {
   GiBoatFishing,
   GiCaveEntrance,
 } from "react-icons/gi";
-import { FaSkiing } from "react-icons/fa";
 import { BsSnow } from "react-icons/bs";
+import { FaSkiing } from "react-icons/fa";
 import { IoDiamond } from "react-icons/io5";
 import { MdOutlineVilla } from "react-icons/md";
 
@@ -123,8 +123,8 @@ const Categories = () => {
         {categories.map((item) => (
           <CategoryBox
             key={item.label}
-            label={item.label}
             icon={item.icon}
+            label={item.label}
             selected={category === item.label}
           />
         ))}
