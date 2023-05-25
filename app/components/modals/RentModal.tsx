@@ -6,6 +6,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import Map from "../Map";
 import Modal from "./Modal";
 import Heading from "../Heading";
+import Counter from "../inputs/Counter";
 import { categories } from "../navbar/Categories";
 import useRentModal from "@/app/hooks/useRentModal";
 import CategoryInput from "../inputs/CategoryInput";
@@ -127,6 +128,37 @@ const RentModal = () => {
           onChange={(value) => setCustomValue("location", value)}
         />
         <Map center={location?.latlng} />
+      </div>
+    );
+  }
+
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Share some basics about your place"
+          subtitle="What amenitis do you have?"
+        />
+        <Counter
+          title="Guests"
+          value={guestCount}
+          subtitle="How many guests do you allow?"
+          onChange={(value) => setCustomValue("guestCount", value)}
+        />
+        <hr />
+        <Counter
+          title="Rooms"
+          value={roomCount}
+          subtitle="How many rooms do you have?"
+          onChange={(value) => setCustomValue("roomCount", value)}
+        />
+        <hr />
+        <Counter
+          title="Bathrooms"
+          value={bathroomCount}
+          subtitle="How many bathrooms do you have?"
+          onChange={(value) => setCustomValue("bathroomCount", value)}
+        />
       </div>
     );
   }
