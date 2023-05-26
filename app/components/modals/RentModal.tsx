@@ -6,6 +6,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import Map from "../Map";
 import Modal from "./Modal";
 import Heading from "../Heading";
+import Input from "../inputs/Input";
 import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
 import { categories } from "../navbar/Categories";
@@ -26,6 +27,7 @@ const RentModal = () => {
   const rentModal = useRentModal();
 
   const [step, setStep] = useState(STEPS.CATEGORY);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onBack = () => {
     setStep((value) => value - 1);
@@ -174,6 +176,34 @@ const RentModal = () => {
         <ImageUpload
           value={imageSrc}
           onChange={(value) => setCustomValue("imageSrc", value)}
+        />
+      </div>
+    );
+  }
+
+  if (step === STEPS.DESCRIPTION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="How would you describe your place?"
+          subtitle="Short and sweet works best!"
+        />
+        <Input
+          required
+          id="title"
+          label="Title"
+          errors={errors}
+          register={register}
+          disabled={isLoading}
+        />
+        <hr />
+        <Input
+          required
+          errors={errors}
+          id="description"
+          label="Description"
+          register={register}
+          disabled={isLoading}
         />
       </div>
     );
