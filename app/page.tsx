@@ -2,6 +2,7 @@ import ClientOnly from "./components/ClientOnly";
 import Container from "@/app/components/Container";
 import EmptyState from "@/app/components/EmptyState";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+import ListingCard from "./components/listings/ListingCard";
 import getListings, { IListingsParams } from "@/app/actions/getListings";
 
 interface HomeProps {
@@ -21,16 +22,7 @@ const Home = async ({ searchParams }: HomeProps) => {
   }
 
   const listingsList = listings.map((listing: any) => (
-    <>
-      <span>{listing.title}</span>
-      <span>{listing.description}</span>
-      <span>{listing.category}</span>
-      <span>{listing.roomCount}</span>
-      <span>{listing.bathroomCount}</span>
-      <span>{listing.guestCount}</span>
-      <span>{listing.locationValue}</span>
-      <span>{listing.price}</span>
-    </>
+    <ListingCard currentUser={currentUser} key={listing.id} data={listing} />
   ));
 
   return (
