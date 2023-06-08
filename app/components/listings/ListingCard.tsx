@@ -6,16 +6,18 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 
 import useCountries from "@/app/hooks/useCountries";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 
 import Button from "../Button";
+import HeartButton from "../HeartButton";
 
 interface ListingCardProps {
-  data: any;
+  data: SafeListing;
   actionId?: string;
   disabled?: boolean;
-  reservation?: any;
   actionLabel?: string;
-  currentUser?: any | null;
+  currentUser?: SafeUser | null;
+  reservation?: SafeReservation;
   onAction?: (id: string) => void;
 }
 
@@ -99,7 +101,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
               absolute
             "
           >
-            <button />
+            <HeartButton listingId={data.id} currentUser={currentUser} />
           </div>
         </div>
         <div className="font-semibold text-lg">
