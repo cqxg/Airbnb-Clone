@@ -99,10 +99,10 @@ export const categories = [
 ];
 
 const Categories = () => {
-  const params = useSearchParams();
-  const category = params?.get("category");
   const pathname = usePathname();
+  const params = useSearchParams();
   const isMainPage = pathname === "/";
+  const category = params?.get("category");
 
   if (!isMainPage) {
     return null;
